@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_change_path(@change) %> |
+<h1>Listing Changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @change.each do |_change| %>
+    <tr>
+      <td><%= _change.fetch(:id) %></td>
+      <td><%= I18n.l(DateTime.parse(_change.fetch(:timestamp)), format: :short) %></td>
+      <td><%= _change.fetch(:description) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Destroy', change_path(id: @id), method: :delete %>
 <%= link_to 'Back', changes_path %>

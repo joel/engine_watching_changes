@@ -1,0 +1,24 @@
+$gray-lighter:             lighten(#000, 93.5%) !default; // #eee
+$gray-btn: 		             #a3a3a3 !default;
+$gray-common: 	           #7f7f7f !default;
+$brand-primary:            #41b5e8 !default;
+$brand-secondary:          #ff7769 !default;
+$brand-tertiary:           #4795b7 !default;
+$body-bg:                  #e2e2e2 !default;
+$text-color:               #5d5d5d !default;
+$link-color:               $brand-tertiary !default;
+$link-hover-color:         saturate($link-color, 25%) !default;
+$font-family-title:        "Faricy_newlight", Verdana, sans-serif !default;
+$padding-large-vertical:   6px !default;
+$padding-large-horizontal: 12px !default;
+$btn-default-color:        #fff !default;
+$btn-default-bg:           $brand-primary;
+$btn-default-border:       $brand-primary;
+$btn-primary-color:        $gray-common;
+$btn-primary-bg:           rgba(255,255,255,.1%) !default;
+$btn-primary-border:       $gray-common;
+$btn-info-color:           #fff !default;
+$btn-info-bg:              rgba(255,255,255,.1%)  !default;
+$btn-info-border:          #fff !default;
+$thumbnail-bg:             transparent !default;
+$thumbnail-border:         transparent !default;

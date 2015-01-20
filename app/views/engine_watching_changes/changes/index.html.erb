@@ -5,21 +5,17 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="3">Id</th>
     </tr>
   </thead>
 
   <tbody>
     <% @changes.each do |change| %>
       <tr>
-        <td><%= link_to 'Show', change %></td>
-        <td><%= link_to 'Edit', edit_change_path(change) %></td>
+        <td><%= change.fetch(:id) %></td>
+        <td><%= link_to 'Show', change_path(id: change.fetch(:id)) %></td>
         <td><%= link_to 'Destroy', change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Change', new_change_path %>
