@@ -18,18 +18,18 @@ module EngineWatchingChanges
         expect(store).to receive(:search).with(:id, 42)
         expect(Repository.instance).to receive(:store) { store }
         get :show, { id: 42 }
-        # expect(assigns(:change)).to eq(change)
+        # expect(assigns(:change)).to be_present
       end
     end
 
-    # describe "DELETE destroy" do
-    #   it "destroys the requested change" do
-    #     change = Change.create! valid_attributes
-    #     expect {
-    #       delete :destroy, {id: change.to_param}, valid_session
-    #     }.to change(Change, :count).by(-1)
-    #   end
-    # end
+    describe "DELETE destroy" do
+      it "destroys the requested change" do
+        store = double(:store)
+        expect(store).to receive(:delete_query).with(:id, 42)
+        expect(Repository.instance).to receive(:store) { store }
+        delete :destroy, { id: 42 }
+      end
+    end
 
   end
 end

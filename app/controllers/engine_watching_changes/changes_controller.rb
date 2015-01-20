@@ -18,7 +18,9 @@ module EngineWatchingChanges
 
     # DELETE /changes/1
     def destroy
-      redirect_to changes_url, notice: 'Change was successfully destroyed.'
+      @id = params['id'].to_i
+      num = repository.store.delete_query(:id, @id)
+      redirect_to changes_url, notice: "#{num}x was successfully destroyed."
     end
 
     private

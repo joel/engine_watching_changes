@@ -11,10 +11,11 @@
 
   <tbody>
     <% @changes.each do |change| %>
+      <% id = change.fetch(:id) %>
       <tr>
-        <td><%= change.fetch(:id) %></td>
-        <td><%= link_to 'Show', change_path(id: change.fetch(:id)) %></td>
-        <td><%= link_to 'Destroy', change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= id %></td>
+        <td><%= link_to 'Show', change_path(id: id) %></td>
+        <td><%= link_to 'Destroy', change_path(id: id), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
