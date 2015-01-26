@@ -5,13 +5,11 @@ module EngineWatchingChanges
 
     # GET /changes
     def index
-      # binding.pry
       @changes = repository.uniq_entries
     end
 
     # GET /changes/1
     def show
-      # binding.pry
       @id = params['id'].to_i
       @change = repository.store.search(:id, @id)
     end

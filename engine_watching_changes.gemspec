@@ -21,9 +21,9 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(spec)/})
   s.require_paths = ['lib']
 
-  s.add_dependency 'rails', '~> 4.2.0'
+  s.add_dependency 'rails', '~> 4.1.8'
   # s.add_dependency 'moderation', '~> 0.0.3'
-  s.add_development_dependency 'rspec-rails', '~> 3.1'
+  s.add_development_dependency 'rspec-rails', '~> 3.0.2'
   # s.add_development_dependency 'rspec', '~> 3.1'
   # s.add_development_dependency 'gemnasium', '~> 3.2'
   # s.add_development_dependency 'coveralls', '~> 0.7'

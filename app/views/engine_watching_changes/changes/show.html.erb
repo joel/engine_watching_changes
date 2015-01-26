@@ -1,26 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="row moderation">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h1>Listing of changes for <%= User.find(@id).to_s %></h1>
 
-<h1>Listing Changes</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Changes</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Date</th>
-      <th>Description</th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @change.each do |_change| %>
+        <%- _change.delete(:id) -%>
+        <tr>
+          <td><%= I18n.l(DateTime.parse(_change.delete(:timestamp)), format: :short) %></td>
+          <%- _change.each do |key, value| -%>
+          <%- if key == :added_degree or key == :removed_degree -%>
+          <td><%= "<b>#{key}:</b> ".html_safe %> <img src="data:image/png;base64,<%="#{value}"%>"/></td>
+          <%- else -%>
+          <td><%= "<b>#{key}:</b> #{value}".html_safe %></td>
+          <%- end -%>
+          <%- end -%>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <tbody>
-    <% @change.each do |_change| %>
-    <tr>
-      <td><%= _change.fetch(:id) %></td>
-      <td><%= I18n.l(DateTime.parse(_change.fetch(:timestamp)), format: :short) %></td>
-      <td><%= _change.fetch(:description) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Destroy', change_path(id: @id), method: :delete %>
-<%= link_to 'Back', changes_path %>
+    <%= link_to 'Destroy', change_path(id: @id), method: :delete, class: 'btn  btn-danger' %>
+    <%= link_to 'Back', changes_path, class: 'btn  btn-default' %>
+  </div>
+  <div class="col-md-1"></div>
+</div>

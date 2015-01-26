@@ -1,22 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="row moderation">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h1>Listing of Changes...</h1>
 
-<h1>Listing Changes</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3">Id</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @changes.each do |change| %>
-      <% id = change.fetch(:id) %>
-      <tr>
-        <td><%= id %></td>
-        <td><%= link_to 'Show', change_path(id: id) %></td>
-        <td><%= link_to 'Destroy', change_path(id: id), method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @changes.each do |change| %>
+        <% id = change.fetch(:id) %>
+        <tr>
+          <td><%= link_to User.find(id).to_s, change_path(id: id) %></td>
+          <td><%= link_to 'Destroy', change_path(id: id), method: :delete, class: 'btn  btn-danger' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Admin', '/admin', class: 'btn  btn-default' %>
+  </div>
+  <div class="col-md-1"></div>
+</div>
