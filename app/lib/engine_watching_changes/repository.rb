@@ -25,7 +25,8 @@ module EngineWatchingChanges
     private
 
     def adapter
-      server = 'redis://localhost:6379'
+      # server = 'redis://localhost:6379'
+      server = ENV['REDISTOGO_URL']
       Moderation::Adapters::RedisAdapter.new(collection: 'psy_moderations', server: server)
     end
   end

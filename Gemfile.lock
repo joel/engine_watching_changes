@@ -1,15 +1,17 @@
+GIT
+  remote: git://github.com/joel/moderation.git
+  revision: 7442a5783fb1d223b1d8ed2ae211d495a943eea0
+  branch: working
+  specs:
+    moderation (0.0.3)
+      multi_json (~> 1.0)
+      redis-namespace (~> 1.0)
+
 PATH
   remote: .
   specs:
     engine_watching_changes (0.0.1)
       rails (~> 4.1.8)
-
-PATH
-  remote: /Users/joel/Documents/WorkData/RubyWorkSpace/Psy/moderation
-  specs:
-    moderation (0.0.3)
-      multi_json (~> 1.0)
-      redis-namespace (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
